@@ -78,7 +78,7 @@ const TODO_APP = {
             content.append(ul)
             
         } else {
-            content.innerHTML = `<strong>OPS, Ainda não há usuários.</strong>`;
+            this.error(`<strong>OPS, Ainda não há usuários.</strong>`);
         }
     }
 }

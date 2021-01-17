@@ -72,3 +72,11 @@ button:hover {
     font-weight: 700;
     margin: 5px 0;
 }
+
+#message {
+    margin-top: 30px;
+}
+
+#message strong {
+    color: rgb(233, 90, 90);
+}
