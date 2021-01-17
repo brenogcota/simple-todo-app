@@ -24,7 +24,7 @@ const TODO_APP = {
                 createInput.value = '';
                 _this.render(_this.users);
             } else {
-                content.innerHTML = `<strong>usuário já existe!</strong>`;
+                _this.error('usuário já existe!');
             }
         })
         
@@ -43,7 +43,7 @@ const TODO_APP = {
                 _this.searchResults = _this.users.filter(user => user == value)
                 searchInput.value = '';
                 if(_this.searchResults.length < 1) {
-                    content.innerHTML = `<strong>Usuário ${value} não encontrado</strong>`;
+                    _this.error(`Usuário ${value} não encontrado`);
                 } else {
                     _this.render(_this.searchResults);
                 }
@@ -52,17 +52,30 @@ const TODO_APP = {
         })
     },
 
+    error: function(str) {
+        const message = document.getElementById('message');
+        message.innerHTML = `<strong>${str}</strong>`;
+    },
+
     render: function(users) {
         const content = document.getElementById('content');
+        const message = document.getElementById('message');
+        message.innerHTML = '';
 
         if(users.length > 0) {
             content.innerHTML = '';
+            const ul = document.createElement('ul');
+            ul.classList.add('list')
 
             users.map(user => {
-                content.append(`
+                const li = document.createElement('li');
+                li.append(`
                     ${user}
                 `)
+                ul.append(li)
             })
+            
+            content.append(ul)
             
         } else {
             content.innerHTML = `<strong>OPS, Ainda não há usuários.</strong>`;

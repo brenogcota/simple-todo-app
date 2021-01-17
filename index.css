@@ -44,16 +44,31 @@ button:hover {
     cursor: pointer;
 }
 
-
-.box {
-    display: flex;
-    align-items: center;
-}
-
 #content {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     margin-top: 40px;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    background: #EEE;
+    border-radius: 16px;
+    padding: 40px;
+    width: 560px;
+    height: 100%;
+}
+
+.list li {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 5px 0;
 }
